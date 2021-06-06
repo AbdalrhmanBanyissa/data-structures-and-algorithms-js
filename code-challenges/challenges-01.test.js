@@ -11,7 +11,7 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 const addOne = (arr) => {
   let newArr = [];
   arr.forEach((item) => {
-    newArr.push(item+1);
+    newArr.push( item + 1 );
   });
   return newArr;
 };
@@ -25,7 +25,11 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 ------------------------------------------------------------------------------------------------ */
 
 const addExclamation = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  arr.forEach((item) => {
+    newArr.push( item + '!' );
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,8 +40,12 @@ Write a function named `allUpperCase` that takes an array of strings, and return
 Use `forEach` to loop over the input array. The modified strings should each be added into a local array. Return that local array.
 ------------------------------------------------------------------------------------------------ */
 
-const allUpperCase = (arr) => {
-  // Solution code here...
+const allUpperCase = arr => {
+  let newArr = [];
+  arr.forEach(val => {
+    newArr.push(val.toUpperCase());
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,10 +60,17 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 
 const greeting = (word) => {
   // Solution code here...
+  return word+'!';
 };
 
 const speaker = (words, callback) => {
   // Solution code here...
+  let newArr=[];
+  words.forEach(val=>{
+    let newItem=callback(val);
+    newArr.push(newItem.toUpperCase());
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,10 +91,15 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  for(let i=0;i<times;i++){
+    callback(arr,num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,6 +122,14 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  let newArr=[];
+
+  availableItems.forEach(val=>{
+    if(val.available){
+      newArr.push(val.name);
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,6 +148,20 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  let newArr = [];
+  arr.forEach(val => {
+    if (val % 3 === 0 && val % 5 !== 0) {
+      newArr.push('Fizz');
+    } else if (val % 3 !== 0 && val % 5 === 0) {
+      newArr.push('Buzz');
+    } else if (val % 3 === 0 && val % 5 === 0) {
+      newArr.push('Fizz Buzz');
+    } else {
+      newArr.push(val);
+    }
+
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -173,7 +215,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test('It should print out messages or numbers', () => {
