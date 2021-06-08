@@ -6,10 +6,12 @@ CHALLENGE 1 - Review
 Write a function called addTwo that takes in an array and adds two to every value using a for loop. Place the new value in a new array. Return the new array.
 ------------------------------------------------------------------------------------------------ */
 
-const addTwo = (arr) => {let sums = arr.map((i)=>{
-  return i + 2;}
-);
-return sums;
+const addTwo = (arr) => {
+  const sums = [];
+  for (let i = 0; i < arr.length; i++) {
+    sums[i] = arr[i] + 2;
+  }
+  return sums;
 };
 
 /* ------------------------------------------------------------------------------------------------
